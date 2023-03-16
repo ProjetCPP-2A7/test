@@ -1,39 +1,40 @@
 #ifndef PATIENT_H
 #define PATIENT_H
-#include <QSqlQuery>
-#include <QSqlQueryModel>
+#include<QtSql/QSqlQuery>
+#include<QtSql/QSqlQueryModel>
+#include<QMessageBox>
 #include <QString>
 
 
 
 class Patient
 {
-private :
-    QString Nom ,Prénom ,Adresse,Numéro,Nombredeséance,Identifiant;
-public:
-    patient(QString,QString,QString,QString,QString,QString) ;
-        patient(){};
+    QString NOM ,PRENOM ,ADRESSE;
+   int NUMERO,NBR_SEANCE,ID_PATIENT;
+public: 
+        Patient(){}
+        Patient(QString,QString,QString,int,int,int);
 
-        QString getNom();
-        QString getPrénom();
-        QString getAdresse();
-        QString getNuméro();
-        QString getNombredeséance();
-        QString getIdentifiant();
-        void setNom(QString  );
-        void setPrénom(QString );
-        void setAdresse(QString );
-        void setNuméro(QString );
-        void setNombredeséance(QString );
-        void setIdentifiant(QString );
+        QString getNOM(){return NOM;}
+        QString getPRENOM(){return PRENOM;}
+        QString getADRESSE(){return ADRESSE;}
+        int getNUMERO(){return NUMERO;}
+        int getNBR_SEANCE(){return NBR_SEANCE;}
+        int getID_PATIENT(){return ID_PATIENT;};
+        void setNOM(QString n ){NOM=n;}
+        void setPRENOM(QString p){PRENOM=p;}
+        void setADRESSE(QString a){ADRESSE=a;}
+        void setNUMERO(int num){this->NUMERO=num;}
+        void setNBR_SEANCE(int nb ){this->NBR_SEANCE=nb;}
+        void setID_PATIENT(int id){this->ID_PATIENT=id;}
 
 
 
 
         bool ajouter();
-        bool modifier(QString);
+        bool modifier();
          QSqlQueryModel * afficher();
-          bool supprimer(QString cin);
+          bool supprimer(int);
 
     };
 

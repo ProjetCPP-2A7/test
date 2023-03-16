@@ -2,38 +2,55 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>996</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-1</y>
-      <width>801</width>
+      <y>0</y>
+      <width>981</width>
       <height>571</height>
      </rect>
     </property>
     <property name="currentIndex">
      <number>1</number>
     </property>
-    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page">
+     <widget class="QTableView" name="table_afficher">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>741</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>911</width>
+        <x>-10</x>
+        <y>-30</y>
+        <width>1001</width>
         <height>641</height>
        </rect>
       </property>
@@ -41,7 +58,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Desktop/327963356_513455150939298_1874181773823642859_n.png</pixmap>
+       <pixmap>../../Downloads/327963356_513455150939298_1874181773823642859_n.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -121,11 +138,15 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>60</y>
-        <width>91</width>
+        <width>171</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;Script MT Bold&quot;;
+	font-weight: bold;</string>
       </property>
       <property name="text">
        <string>Plus d'options :</string>
@@ -134,11 +155,15 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>230</y>
-        <width>121</width>
-        <height>21</height>
+        <x>10</x>
+        <y>220</y>
+        <width>301</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Script MT Bold&quot;;
+	font-weight: bold;</string>
       </property>
       <property name="text">
        <string>Informations Patient</string>
@@ -233,10 +258,10 @@
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>510</y>
+        <x>50</x>
+        <y>500</y>
         <width>141</width>
-        <height>20</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -250,7 +275,7 @@
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>592</x>
+        <x>720</x>
         <y>30</y>
         <width>191</width>
         <height>28</height>
@@ -274,11 +299,11 @@
        <string>Retour au menu principal</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_10">
+     <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>450</y>
+        <x>360</x>
+        <y>410</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -304,8 +329,8 @@
      <widget class="QPushButton" name="pushButton_11">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>450</y>
+        <x>480</x>
+        <y>410</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -331,8 +356,8 @@
      <widget class="QPushButton" name="pushButton_12">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>510</y>
+        <x>360</x>
+        <y>460</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -358,11 +383,17 @@
      <widget class="QRadioButton" name="radioButton">
       <property name="geometry">
        <rect>
-        <x>660</x>
-        <y>430</y>
-        <width>97</width>
+        <x>820</x>
+        <y>370</y>
+        <width>111</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Script MT Bold&quot;;
+	font-weight: bold;
+
+</string>
       </property>
       <property name="text">
        <string>Décroissant</string>
@@ -371,11 +402,15 @@
      <widget class="QRadioButton" name="radioButton_2">
       <property name="geometry">
        <rect>
-        <x>660</x>
-        <y>460</y>
+        <x>820</x>
+        <y>400</y>
         <width>97</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Script MT Bold&quot;;
+	font-weight: bold;</string>
       </property>
       <property name="text">
        <string>Croissant</string>
@@ -444,14 +479,15 @@
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>500</y>
-        <width>91</width>
-        <height>20</height>
+        <x>710</x>
+        <y>490</y>
+        <width>161</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">font: 15pt &quot;Script MT Bold&quot;;
+	font-weight: bold;</string>
       </property>
       <property name="text">
        <string>Recherche :</string>
@@ -460,7 +496,7 @@
      <widget class="QLineEdit" name="lineEdit_7">
       <property name="geometry">
        <rect>
-        <x>660</x>
+        <x>840</x>
         <y>500</y>
         <width>113</width>
         <height>22</height>
@@ -486,6 +522,70 @@
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_13">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>450</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+
+{
+	background-color: #e0edc6;
+	color:rgb(0, 0, 0);
+	font: 10pt &quot;Script MT Bold&quot;;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Afficher</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>530</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>520</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 15pt &quot;Script MT Bold&quot;;
+	font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Id a supprimer :</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="table_afficher_2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>80</y>
+        <width>561</width>
+        <height>261</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -494,7 +594,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>996</width>
      <height>26</height>
     </rect>
    </property>

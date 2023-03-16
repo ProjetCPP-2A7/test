@@ -1,6 +1,9 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
-#include <QSqlDatabase>
+#include<QtSql/QSqlDatabase>
+#include<QtSql/QSqlError>
+#include<QtSql/QSqlQuery>
+#include<QMessageBox>
 
 
 class connection
