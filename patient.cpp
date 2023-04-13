@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
 
-Patient::Patient(QString NOM,QString PRENOM,QString ADRESSE,int NUMERO,int NBR_SEANCE,int ID_PATIENT)
+
+Patient::Patient(QString NOM,QString PRENOM,QString ADRESSE,int NUMERO,int NBR_SEANCE,int ID_PATIENT,QString SEXE)
 {
      this->ID_PATIENT=ID_PATIENT;
      this->NOM=NOM;
@@ -10,6 +11,7 @@ Patient::Patient(QString NOM,QString PRENOM,QString ADRESSE,int NUMERO,int NBR_S
      this->ADRESSE=ADRESSE;
      this->NUMERO=NUMERO;
      this->NBR_SEANCE=NBR_SEANCE;
+    this->SEXE=SEXE;
 
 }
 /*QString Patient:: getID_PATIENT(){return cin;}
@@ -31,7 +33,7 @@ bool Patient::ajouter()
 {
     QSqlQuery query;
 
-    query.prepare("INSERT INTO PATIENT VALUES (:ID_PATIENT, :NOM, :PRENOM,:ADRESSE,:NUMERO, :NBR_SEANCE)");
+    query.prepare("INSERT INTO PATIENT VALUES (:ID_PATIENT, :NOM, :PRENOM,:ADRESSE,:NUMERO, :NBR_SEANCE ,:SEXE)");
 
     query.bindValue(":ID_PATIENT",ID_PATIENT);
     query.bindValue(":NOM",NOM);
@@ -39,6 +41,7 @@ bool Patient::ajouter()
     query.bindValue(":ADRESSE",ADRESSE);
     query.bindValue(":NUMERO", NUMERO);
     query.bindValue(":NBR_SEANCE",NBR_SEANCE);
+    query.bindValue(":SEXE",SEXE);
 
     return    query.exec();
 }
@@ -71,6 +74,7 @@ model->setHeaderData(2,Qt::Horizontal,QObject::tr("PRENOM"));
 model->setHeaderData(3,Qt::Horizontal,QObject::tr("ADRESSE"));
 model->setHeaderData(4,Qt::Horizontal,QObject::tr("NUMERO"));
 model->setHeaderData(5,Qt::Horizontal,QObject::tr("NBR_SEANCE"));
+model->setHeaderData(6,Qt::Horizontal,QObject::tr("SEXE"));
 return model;
 }
 bool Patient::supprimer(int ID_PATIENT){
@@ -100,7 +104,37 @@ bool Patient::modifier(){
     query.bindValue(":ADRESSE",ADRESSE);
     query.bindValue(":NUMERO",res);
     query.bindValue(":NBR_SEANCE", res2);
+     query.bindValue(":SEXE",SEXE);
 
      return query.exec();
     //qDebug()<<query.lastError();
 }
+QSqlQueryModel * Patient::Recherche(QString a)//cls=ASC ou DESC
+{
+QSqlQueryModel *model=new QSqlQueryModel();
+
+model->setQuery("select * from PATIENT WHERE ID_PATIENT LIKE '%"+a+"%' OR NOM LIKE '%"+a+"%' OR PRENOM LIKE '%"+a+"%'OR ADRESSE LIKE '%"+a+"%' OR NUMERO LIKE '%"+a+"%'  OR NBR_SEANCE LIKE '%"+a+"%'" );
+model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_PATIENT"));
+model->setHeaderData(1,Qt::Horizontal,QObject::tr("NOM"));
+model->setHeaderData(2,Qt::Horizontal,QObject::tr("PRENOM"));
+model->setHeaderData(3,Qt::Horizontal,QObject::tr("ADRESSE"));
+model->setHeaderData(4,Qt::Horizontal,QObject::tr("NUMERO"));
+model->setHeaderData(5,Qt::Horizontal,QObject::tr("NBR_SEANCE"));
+model->setHeaderData(6,Qt::Horizontal,QObject::tr("SEXE"));
+return model ;
+}
+QSqlQueryModel *Patient::tricin()
+{
+  QSqlQueryModel *model=new QSqlQueryModel();
+  model->setQuery("SELECT * FROM PATIENT ORDER BY NBR_SEANCE");
+  model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_PATIENT"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("ADRESSE"));
+  model->setHeaderData(5, Qt::Horizontal, QObject::tr("NUMERO"));
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("NBR_SEANCE"));
+  model->setHeaderData(6, Qt::Horizontal, QObject::tr("SEXE"));
+
+        return model;
+}
+
